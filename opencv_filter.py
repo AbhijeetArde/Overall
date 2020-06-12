@@ -7,7 +7,7 @@ import numpy as np
 import os
 import subprocess
 
-cascPath = r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\haarcascade_frontalface_default.xml"  # for face detection
+cascPath = r"haarcascade_frontalface_default.xml"  # for face detection
 
 # if not os.path.exists(cascPath):
 #     subprocess.call(['./download_filters.sh'])
