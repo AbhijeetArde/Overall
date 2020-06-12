@@ -1,5 +1,5 @@
 # facedetection
 
-Reads the face using the opencv using python 
-use sapcebar to capture image
-pres Esc to exit the camera window
+Reads the face using the opencv using python.
+Use spacebar to capture image. 
+Pres Esc to exit the camera window.
