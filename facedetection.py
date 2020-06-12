@@ -5,6 +5,7 @@ import datetime as dt
 from time import sleep
 
 cascPath = r"haarcascade_frontalface_default.xml"
+SMILE_CASCADE = cv2.CascadeClassifier(r"haarcascade_smile.xml")
 faceCascade = cv2.CascadeClassifier(cascPath)
 log.basicConfig(filename='webcam.log', level=log.INFO)
 
@@ -32,6 +33,12 @@ while True:
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        region_of_interest_bw = gray[y:y + h, x:x + w]
+        region_of_interest_color = frame[y:y + h, x:x + w]
+        smiles = SMILE_CASCADE.detectMultiScale(region_of_interest_bw, 1.7, 22)
+        for sx, sy, sw, sh in smiles:
+            cv2.rectangle(region_of_interest_color, (sx, sy),
+                          (sx + sw, sy + sh), (0, 0, 255), 2)
 
     if anterior != len(faces):
         anterior = len(faces)
