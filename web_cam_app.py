@@ -2,7 +2,7 @@ from flask import Flask, render_template, Response
 import cv2
 ds_factor=0.6
 app = Flask(__name__)
-face_cascade=cv2.CascadeClassifier(r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\haarcascade_frontalface_default.xml")
+face_cascade=cv2.CascadeClassifier(r"haarcascade_frontalface_default.xml")
 @app.route('/')
 def index():
     return render_template('index.html')
