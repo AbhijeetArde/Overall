@@ -6,8 +6,8 @@ import cv2
 filename = 'video.avi'
 frames_per_second = 24.0
 res = '720p'
-face_cascade=cv2.CascadeClassifier(r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\haarcascade_frontalface_default.xml")
-SMILE_CASCADE = cv2.CascadeClassifier(r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\haarcascade_smile.xml")
+face_cascade=cv2.CascadeClassifier(r"haarcascade_frontalface_default.xml")
+SMILE_CASCADE = cv2.CascadeClassifier(r"haarcascade_smile.xml")
 
 # Set resolution for the video capture
 # Function adapted from https://kirr.co/0l6qmh
