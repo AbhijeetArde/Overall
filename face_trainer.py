@@ -29,6 +29,6 @@ def getImagesAndLabels(path):
     return faceSamples,Ids
 
 
-faces,Ids = getImagesAndLabels(r'C:\Users\abhijeet.p.arde\PycharmProjects\testing\data')
+faces,Ids = getImagesAndLabels(r'C:\Users\testing\data')
 recognizer.train(faces, np.array(Ids))
-recognizer.save(r'C:\Users\abhijeet.p.arde\PycharmProjects\testing\trainer.yml')
+recognizer.save(r'C:\Users\testing\trainer.yml')
