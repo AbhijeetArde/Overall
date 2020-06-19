@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 cam=cv2.VideoCapture(0)
-detector=cv2.CascadeClassifier(r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\haarcascade_frontalface_default.xml")
+detector=cv2.CascadeClassifier(r"C:\Users\testing\haarcascade_frontalface_default.xml")
 
 Id=input('enter your id: ')
 sampleNum=0
@@ -14,7 +14,7 @@ while(True):
         #incrementing sample number
         sampleNum=sampleNum+1
         #saving the captured face in the dataset folder
-        cv2.imwrite(r"C:\Users\abhijeet.p.arde\PycharmProjects\testing\data\user."+Id +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
+        cv2.imwrite(r"C:\Users\testing\data\user."+Id +'.'+ str(sampleNum) + ".jpg", gray[y:y+h,x:x+w])
         cv2.imshow('frame',img)
         #wait for 100 miliseconds
         if cv2.waitKey(100) & 0xFF == ord('q'):
