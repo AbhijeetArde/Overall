@@ -5,9 +5,11 @@ import json
 import wikipedia
 import random
 import nltk
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 higreeting = ["नमस्ते ", "नमस्कार", "आपले स्वागत आहे"]
-token = 's'
+token = ''
 base = "https://api.telegram.org/bot{}/".format(token)
 
 
@@ -38,21 +40,26 @@ def make_reply(msg):
     reply = None
     token = tokenit(msg)
     print(token)
-    msg = [lis[0].lower() for lis in token if lis[1] == 'NN' or lis[1] == 'NNP']
-    if "/start" in msg:
-        reply = "Hello"
-    elif "hi" in msg:
-        reply = random.choice(higreeting)
-    elif msg is not None:
-        try:
-            reply = wikipedia.summary(msg, sentences=2)
-        except Exception as e:
-            search = wikipedia.search(str(msg), results=2)
-            if search:
-                reply = ",".join(search)
-                reply = "Do you mean : " + reply
-            else:
-                reply = "Hey buddy,Try again with a different word"  # wikipedia.summary(msg+ "(greeting)", sentences=2)
+    msg = [lis[0].lower() for lis in token if lis[1] == 'NN' or lis[1] == 'NNP' or lis[1] == 'JJ' or lis[1] == 'NNS' or lis[1] == 'VBN']
+    if len(msg) is not 0:
+
+        msg = "_".join(msg)
+        msg = msg.replace("something_", "")
+        if "/start" in msg:
+            reply = "Hello"
+        elif msg == "hi" or msg == "hello":
+            reply = random.choice(higreeting)
+        elif msg is not None:
+            try:
+                print("searching for :" ,msg)
+                reply = wikipedia.summary(msg, sentences=2)
+            except Exception as e:
+                search = wikipedia.search(str(msg), results=2)
+                if search:
+                    reply = ",".join(search)
+                    reply = "Do you mean : " + reply
+                else:
+                    reply = "Hey buddy,Try again with a different word"  # wikipedia.summary(msg+ "(greeting)", sentences=2)
     return reply
 
 
