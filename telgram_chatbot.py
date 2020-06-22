@@ -1,7 +1,5 @@
 import requests
 import json
-# import configparser as cfg
-# import gizoogle
 import wikipedia
 import random
 import nltk
@@ -38,9 +36,9 @@ def tokenit(msg):
 
 def make_reply(msg):
     reply = None
-    token = tokenit(msg)
-    print(token)
-    msg = [lis[0].lower() for lis in token if lis[1] == 'NN' or lis[1] == 'NNP' or lis[1] == 'JJ' or lis[1] == 'NNS' or lis[1] == 'VBN']
+    tokenize = tokenit(msg)
+    msg = [lis[0].lower() for lis in tokenize if lis[1] == 'NN' or lis[1] == 'NNP' or
+           lis[1] == 'JJ' or lis[1] == 'NNS' or lis[1] == 'VBN']
     if len(msg) is not 0:
 
         msg = "_".join(msg)
@@ -51,7 +49,7 @@ def make_reply(msg):
             reply = random.choice(higreeting)
         elif msg is not None:
             try:
-                print("searching for :" ,msg)
+                print("searching for :", msg)
                 reply = wikipedia.summary(msg, sentences=2)
             except Exception as e:
                 search = wikipedia.search(str(msg), results=2)
