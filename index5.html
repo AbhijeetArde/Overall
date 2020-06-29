@@ -1,0 +1,115 @@
+
+  
+<html>
+
+<head>
+<title>Speech-To-Text-Converter</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" />
+		<style type="text/css">
+body {
+	background: #222032;
+}
+
+.box {
+	position: absolute;
+  top: 30%;
+  left: 50%;
+}
+
+.object {
+  display: flex;
+	flex: 0 1 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+.outline {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 8px solid #B5A4A4;
+  animation: pulse 3s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+	position: absolute;
+}
+
+.button {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background: #50CDDD;
+	box-shadow: 0px 0px 80px #0084F9;
+	position: absolute;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+		border: 65px solid #0B3082;
+  }
+  50% {
+		border: solid #A3FFC2;
+		opacity: 0.8;
+  }
+
+	 90% {
+    transform: scale(3.2);
+		opacity: 0.2;
+		border: 3px solid #2E3CFF;
+  }
+  100% {
+    transform: scale(3.3);
+		opacity: 0;
+		border: 1px solid #7A89FF;
+  }
+}
+
+#delayed {
+	animation-delay: 1.5s;
+}
+
+#circlein {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: #6BD6E1;
+	box-shadow: 0px -2px 15px #E0FF94;
+	position: absolute;
+}
+
+.mic-icon {
+	height: 60px;
+	position: absolute;
+	margin: 21px;
+}
+		</style>
+</head>
+   <body>
+
+<div class="box">
+	 <div class="object">
+			<div class="outline">
+			</div>
+			<div class="outline" id="delayed">
+			</div>
+			<div class="button">
+			</div>
+
+                <a href="/result" id="circlein" class="button" >
+
+				<svg class="mic-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve" style="fill:#1E2D70">
+<g><path d="M500,683.8c84.6,0,153.1-68.6,153.1-153.1V163.1C653.1,78.6,584.6,10,500,10c-84.6,0-153.1,68.6-153.1,153.1v367.5C346.9,615.2,415.4,683.8,500,683.8z M714.4,438.8v91.9C714.4,649,618.4,745,500,745c-118.4,0-214.4-96-214.4-214.4v-91.9h-61.3v91.9c0,141.9,107.2,258.7,245,273.9v124.2H346.9V990h306.3v-61.3H530.6V804.5c137.8-15.2,245-132.1,245-273.9v-91.9H714.4z"/></g>
+</svg>
+			</a>
+
+	 </div>
+
+</div>
+<textarea id="w3review" name="w3review" rows="4" cols="50">
+{{ result }}
+</textarea>
+   </body>
+</html>
