@@ -1,15 +1,27 @@
 
   
 <html>
-
+<link href='https://fonts.googleapis.com/css?family=Numans' rel='stylesheet'>
 <head>
 <title>Speech-To-Text-Converter</title>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" />
 		<style type="text/css">
 body {
 	background: #222032;
+	    font-family: 'Numans';font-size: 22px;
+
+}
+#w3review {
+background: none;  // no bg means already transparent if no color wanted
+border: none; // no border  , but if exist add !important to style
 }
 
+textarea
+{
+   font-family: 'Numans';font-size: 40px;
+   font-size: 20px;
+   color: #fff;
+}
 .box {
 	position: absolute;
   top: 30%;
@@ -108,8 +120,8 @@ body {
 	 </div>
 
 </div>
-<textarea id="w3review" name="w3review" rows="4" cols="50">
-{{ result }}
+<textarea id="w3review" name="w3review" rows="25" cols="110" >
+{% if result  %} You are saying : {{ result }} {% else %} Listening... {% endif %}
 </textarea>
    </body>
 </html>
